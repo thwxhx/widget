@@ -239,30 +239,44 @@
 </head>
 <body>
 
-<div class="widget-container">
-    
-    <div class="sport-filters">
-        <button class="sport-btn active">🏆 All</button>
-        <button class="sport-btn">⚽ Football</button>
-        <button class="sport-btn">🏏 Cricket</button>
-    </div>
+<div class="match-list">
 
-    <div class="day-filters">
-        <button class="day-btn">Yesterday</button>
-        <button class="day-btn active">Today</button>
-        <button class="day-btn">Tomorrow</button>
-    </div>
+        <!-- MATCH 1: Starts at 8:00 PM -->
+        <a href="https://yourwebsite.com/live/match-1" class="match-card">
+            <div class="match-main">
+                <div class="team">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" alt="Australia">
+                    <span class="team-name">Australia</span>
+                </div>
+                <div class="score-time">
+                    <span class="score-text">8:00 PM</span>
+                    <!-- Notice the unique data-kickoff time here -->
+                    <span class="status-badge live timer-badge" data-kickoff="2026-07-08T20:00:00">00:00</span>
+                </div>
+                <div class="team">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg" alt="Egypt">
+                    <span class="team-name">Egypt</span>
+                </div>
+            </div>
+            
+            <div class="match-footer">
+                <div class="footer-left"><span>⚽ Match 1</span></div>
+                <div class="footer-center"><span>HelloSports</span></div>
+                <div class="footer-right"><span>Round 1</span></div>
+            </div>
+        </a>
 
-    <div class="match-list">
-
-        <a href="https://yourwebsite.com/live/sui-alg" class="match-card">
+        <!-- MATCH 2: Starts at 11:30 PM -->
+        <a href="https://yourwebsite.com/live/match-2" class="match-card">
             <div class="match-main">
                 <div class="team">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Switzerland.svg" alt="Switzerland">
                     <span class="team-name">Switzerland</span>
                 </div>
                 <div class="score-time">
-                    <span class="status-badge">FT</span>
+                    <span class="score-text">11:30 PM</span>
+                    <!-- Notice the unique data-kickoff time here -->
+                    <span class="status-badge live timer-badge" data-kickoff="2026-07-08T23:30:00">00:00</span>
                 </div>
                 <div class="team">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg" alt="Algeria">
@@ -271,15 +285,9 @@
             </div>
 
             <div class="match-footer">
-                <div class="footer-left">
-                    <span>⚽ FIFA World Cup</span>
-                </div>
-                <div class="footer-center">
-                    <span>HelloSports</span>
-                </div>
-                <div class="footer-right">
-                    <span>Round</span>
-                </div>
+                <div class="footer-left"><span>⚽ Match 2</span></div>
+                <div class="footer-center"><span>HelloSports</span></div>
+                <div class="footer-right"><span>Round 2</span></div>
             </div>
         </a>
 
