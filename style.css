@@ -1,4 +1,4 @@
-:root {
+#vs-widget {
         --bg-main: #09090b;
         --bg-card: #222222;
         --bg-button: #1a1a1a;
@@ -12,17 +12,7 @@
         --text-red: #ffffff; /* Your custom text color */
     }
 
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background-color: var(--bg-main);
-        color: var(--text-main);
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-        margin: 0;
-    }
-
-    .widget-container {
+    #vs-widget .widget-container {
         width: 100%;
         max-width: 500px;
         display: flex;
@@ -31,14 +21,14 @@
     }
 
     /* Top Sport Filters */
-    .sport-filters {
+    #vs-widget .sport-filters {
         display: flex;
         justify-content: center;
         gap: 12px;
         margin-bottom: 8px;
     }
 
-    .sport-btn {
+    #vs-widget .sport-btn {
         background-color: var(--bg-button);
         color: var(--text-main);
         border: 1px solid var(--border-color);
@@ -53,12 +43,12 @@
         transition: border-color 0.2s ease;
     }
 
-    .sport-btn.active {
+    #vs-widget #vs-widget .sport-btn.active {
         border-color: var(--text-main);
     }
 
     /* Day Filters */
-    .day-filters {
+    #vs-widget .day-filters {
         display: flex;
         background-color: var(--bg-button);
         border-radius: 12px;
@@ -66,7 +56,7 @@
         margin-bottom: 8px;
     }
 
-    .day-btn {
+    #vs-widget .day-btn {
         flex: 1;
         background: transparent;
         color: var(--text-muted);
@@ -79,20 +69,20 @@
         border: 1px solid transparent;
     }
 
-    .day-btn.active {
+    #vs-widget #vs-widget .day-btn.active {
         color: var(--text-main);
         border: 1px solid var(--text-main);
         border-radius: 12px;
     }
 
     /* Match Cards */
-    .match-list {
+    #vs-widget .match-list {
         display: flex;
         flex-direction: column;
         gap: 12px;
     }
 
-    .match-card {
+    #vs-widget .match-card {
         background-color: var(--bg-card);
         border-radius: 12px;
         padding: 16px 20px;
@@ -104,19 +94,19 @@
         transition: transform 0.2s ease, background-color 0.2s ease;
     }
 
-    .match-card:hover {
+    #vs-widget #vs-widget .match-card:hover {
         background-color: #2a2a2a;
         transform: translateY(-2px);
     }
 
-    .match-main {
+    #vs-widget .match-main {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 16px;
     }
 
-    .team {
+    #vs-widget .team {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -124,21 +114,21 @@
         width: 30%;
     }
 
-    .team img {
+    #vs-widget #vs-widget .team img {
         width: 40px;
         height: 40px;
         border-radius: 50%;
         object-fit: cover;
     }
 
-    .team-name {
+    #vs-widget #vs-widget .team-name {
         font-size: 14px;
         font-weight: 600;
         text-align: center;
         color: #ffffff;
     }
 
-    .score-time {
+    #vs-widget .score-time {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -146,13 +136,13 @@
         width: 40%;
     }
 
-    .score-text {
+    #vs-widget .score-text {
         font-size: 18px;
         font-weight: 700;
         color: #ffffff;
     }
 
-    .status-badge {
+    #vs-widget .status-badge {
         font-size: 11px;
         font-weight: 700;
         padding: 4px 10px;
@@ -163,19 +153,19 @@
         text-align: center;
     }
 
-    .status-badge.live {
+    #vs-widget #vs-widget .status-badge.live {
         background-color: var(--live-green);
     }
 
     /* Aligned Footer */
-    .match-footer {
+    #vs-widget .match-footer {
         display: flex;
         align-items: center;
         font-size: 11px;
         color: var(--text-muted);
     }
 
-    .footer-left {
+    #vs-widget .footer-left {
         width: 30%;
         display: flex;
         justify-content: center;
@@ -183,24 +173,24 @@
         gap: 4px;
     }
 
-    .footer-center {
+    #vs-widget .footer-center {
         width: 40%;
         text-align: center;
     }
 
-    .footer-right {
+    #vs-widget .footer-right {
         width: 30%;
         text-align: center;
     }
 
     /* Social Action Row */
-    .social-buttons {
+    #vs-widget .social-buttons {
         display: flex;
         gap: 12px;
         margin-top: 16px;
     }
 
-    .social-btn {
+    #vs-widget .social-btn {
         flex: 1;
         padding: 14px;
         border: none;
@@ -216,15 +206,15 @@
         text-decoration: none;
     }
 
-    .social-btn svg {
+    #vs-widget #vs-widget .social-btn svg {
         display: block;
         fill: currentColor; /* Inherits white color automatically */
     }
 
-    .telegram-btn {
+    #vs-widget .telegram-btn {
         background-color: var(--accent-blue);
     }
 
-    .whatsapp-btn {
+    #vs-widget .whatsapp-btn {
         background-color: var(--accent-green);
     }
