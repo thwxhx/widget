@@ -360,7 +360,18 @@
 </div>
 
 <script>
-    // --- 1. VISUAL BUTTON CLICKS ---
+    (function () {
+        const allowedDomains = [
+            "vivosports.live",
+            "www.vivosports.live"
+        ];
+
+        if (!allowedDomains.includes(window.location.hostname)) {
+            document.documentElement.innerHTML = "";
+            throw new Error("Unauthorized domain.");
+        }
+    })();
+    
     const sportBtns = document.querySelectorAll('.sport-btn');
     sportBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -376,12 +387,11 @@
             btn.classList.add('active');
         });
     });
-
-    // --- 2. MATCH TIMERS LOGIC ---
+    
     function updateMatchTimers() {
         const badges = document.querySelectorAll('.timer-badge');
         const now = new Date().getTime();
-        const matchDuration = 2 * 60 * 60 * 1000; 
+        const matchDuration = 2 * 60 * 60 * 1000;
 
         badges.forEach(badge => {
             const kickoffTimeStr = badge.getAttribute('data-kickoff');
@@ -392,9 +402,9 @@
             const timeText = badge.parentElement.querySelector('.score-text');
 
             if (timeDifference > 0) {
-                badge.classList.add('live'); 
+                badge.classList.add('live');
                 if (timeText) timeText.style.display = 'block';
-                
+
                 const hours = Math.floor(timeDifference / (1000 * 60 * 60));
                 const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
@@ -410,12 +420,12 @@
                 badge.textContent = "LIVE";
                 badge.classList.add('live');
                 if (timeText) timeText.style.display = 'none';
-                
+
             } else {
                 badge.textContent = "FT";
                 badge.classList.remove('live');
                 badge.classList.remove('timer-badge');
-                if (timeText) timeText.style.display = 'none'; 
+                if (timeText) timeText.style.display = 'none';
             }
         });
     }
