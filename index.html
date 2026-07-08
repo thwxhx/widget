@@ -304,7 +304,7 @@
     (function () {
         const allowedDomains = [
             "vivosports.live",
-            "www.vivosports.live"
+            "www.vivosports.live", // Fixed the missing comma here!
             "thwxhx.github.io"
         ];
 
@@ -333,7 +333,7 @@
     function updateMatchTimers() {
         const badges = document.querySelectorAll('.timer-badge');
         const now = new Date().getTime();
-        const matchDuration = 2 * 60 * 60 * 1000;
+        const matchDuration = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
 
         badges.forEach(badge => {
             const kickoffTimeStr = badge.getAttribute('data-kickoff');
@@ -343,9 +343,19 @@
             const timeDifference = kickoffTime - now;
             const timeText = badge.parentElement.querySelector('.score-text');
 
+            // Save the original time text (like "11:30 PM") so we don't lose it
+            if (timeText && !timeText.hasAttribute('data-original-time')) {
+                timeText.setAttribute('data-original-time', timeText.textContent);
+            }
+
             if (timeDifference > 0) {
+                // 1. MATCH IN THE FUTURE (COUNTDOWN)
                 badge.classList.add('live');
-                if (timeText) timeText.style.display = 'block';
+                if (timeText) {
+                    timeText.style.display = 'block';
+                    timeText.textContent = timeText.getAttribute('data-original-time'); // Keep showing 11:30 PM
+                    timeText.style.color = 'var(--text-main)'; // Keep it white
+                }
 
                 const hours = Math.floor(timeDifference / (1000 * 60 * 60));
                 const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
@@ -359,15 +369,23 @@
                 badge.textContent = displayText;
 
             } else if (timeDifference <= 0 && Math.abs(timeDifference) < matchDuration) {
-                badge.textContent = "LIVE";
+                // 2. MATCH IS LIVE (WITHIN 2 HOURS OF KICKOFF)
+                badge.textContent = "Live Now"; 
                 badge.classList.add('live');
-                if (timeText) timeText.style.display = 'none';
+                if (timeText) {
+                    timeText.style.display = 'block';
+                    timeText.textContent = "Match Started !"; 
+                    timeText.style.color = 'var(--text-red)'; // Turn text red
+                }
 
             } else {
-                badge.textContent = "FT";
+                // 3. MATCH IS FINISHED (AFTER 2 HOURS)
+                badge.textContent = "Full Time";
                 badge.classList.remove('live');
-                badge.classList.remove('timer-badge');
-                if (timeText) timeText.style.display = 'none';
+                badge.classList.remove('timer-badge'); // Stop calculating for this match
+                if (timeText) {
+                    timeText.style.display = 'none'; // Hide the top text completely
+                }
             }
         });
     }
@@ -375,6 +393,6 @@
     updateMatchTimers();
     setInterval(updateMatchTimers, 1000);
 </script>
-
+    
 </body>
 </html>
