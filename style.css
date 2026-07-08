@@ -1,5 +1,4 @@
-<style>
-    :root {
+:root {
         --bg-main: #09090b;
         --bg-card: #222222;
         --bg-button: #1a1a1a;
@@ -229,4 +228,3 @@
     .whatsapp-btn {
         background-color: var(--accent-green);
     }
-</style>
