@@ -130,12 +130,16 @@ body::before {
     text-decoration: none;
     color: inherit;
     border-left: 4px solid var(--card-border-left);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    /* Upgraded transition for smoother effects */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* Upgraded Match Card Hover */
 .match-card:hover {
     background-color: #2a2a2a;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(121, 111, 199, 0.15); /* Soft violet glow */
+    border-color: #948be0; /* Lightens the violet border */
 }
 
 .match-main {
@@ -243,6 +247,20 @@ body::before {
     align-items: center;
     gap: 10px;
     text-decoration: none;
+    /* Added transitions for the hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+/* General hover lift and brightness for social buttons */
+.social-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+/* Active press effect for a satisfying click */
+.social-btn:active {
+    transform: translateY(0);
+    box-shadow: none !important;
 }
 
 .social-btn svg {
@@ -254,6 +272,16 @@ body::before {
     background-color: var(--accent-blue);
 }
 
+/* Telegram specific hover glow */
+.telegram-btn:hover {
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4);
+}
+
 .whatsapp-btn {
     background-color: var(--accent-green);
+}
+
+/* WhatsApp specific hover glow */
+.whatsapp-btn:hover {
+    box-shadow: 0 8px 16px rgba(37, 211, 102, 0.4);
 }
