@@ -1,252 +1,259 @@
 :root {
-        --bg-main: #09090b;
-        --bg-card: #222222;
-        --bg-button: #1a1a1a;
-        --text-main: #ffffff;
-        --text-muted: #a1a1aa;
-        --border-color: #3f3f46;
-        --accent-blue: #007bff;
-        --accent-green: #25d366;
-        --live-green: #00c853;
-        --card-border-left: #796fc7; /* Your custom border color */
-        --text-red: #ffffff; /* Your custom text color */
-    }
+    --bg-main: #09090b;
+    --bg-card: #222222;
+    --bg-button: #1a1a1a;
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --border-color: #3f3f46;
+    --accent-blue: #007bff;
+    --accent-green: #25d366;
+    --live-green: #00c853;
+    --card-border-left: #796fc7; 
+    --text-red: #ffffff; 
+}
 
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        
-        /* The Dynamic Glow Background */
-        background-color: var(--bg-main);
-        background-image: radial-gradient(ellipse at top center, rgba(121, 111, 199, 0.15) 0%, var(--bg-main) 60%);
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        
-        /* Triggers the breathing animation */
-        animation: breatheGlow 6s ease-in-out infinite alternate;
-        
-        color: var(--text-main);
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-        margin: 0;
-        min-height: 100vh;
-    }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main); 
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+    position: relative; 
+    z-index: 1; 
+}
 
-    /* The Animation Logic */
-    @keyframes breatheGlow {
-        0% {
-            background-size: 100% 100%;
-            background-position: top center;
-        }
-        100% {
-            background-size: 130% 130%;
-            background-position: center 10%;
-        }
-    }
+/* The glowing breathing orb placed behind your content */
+body::before {
+    content: "";
+    position: fixed;
+    top: 40%; 
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(121, 111, 199, 0.35) 0%, rgba(9, 9, 11, 0) 100%);
+    z-index: -1; 
+    pointer-events: none; 
+    animation: breatheGlow 4s ease-in-out infinite alternate;
+}
 
-    .widget-container {
-        width: 100%;
-        max-width: 500px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+/* The Animation Logic - Scaling size and opacity */
+@keyframes breatheGlow {
+    0% {
+        transform: translate(-50%, -50%) scale(0.85);
+        opacity: 0.6;
     }
+    100% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 1;
+    }
+}
 
-    /* Top Sport Filters */
-    .sport-filters {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        margin-bottom: 8px;
-    }
+.widget-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
-    .sport-btn {
-        background-color: var(--bg-button);
-        color: var(--text-main);
-        border: 1px solid var(--border-color);
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        transition: border-color 0.2s ease;
-    }
+/* Top Sport Filters */
+.sport-filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
 
-    .sport-btn.active {
-        border-color: var(--text-main);
-    }
+.sport-btn {
+    background-color: var(--bg-button);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: border-color 0.2s ease;
+}
 
-    /* Day Filters */
-    .day-filters {
-        display: flex;
-        background-color: var(--bg-button);
-        border-radius: 12px;
-        overflow: hidden;
-        margin-bottom: 8px;
-    }
+.sport-btn.active {
+    border-color: var(--text-main);
+}
 
-    .day-btn {
-        flex: 1;
-        background: transparent;
-        color: var(--text-muted);
-        border: none;
-        padding: 12px;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: color 0.2s ease, border 0.2s ease;
-        border: 1px solid transparent;
-    }
+/* Day Filters */
+.day-filters {
+    display: flex;
+    background-color: var(--bg-button);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
 
-    .day-btn.active {
-        color: var(--text-main);
-        border: 1px solid var(--text-main);
-        border-radius: 12px;
-    }
+.day-btn {
+    flex: 1;
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease, border 0.2s ease;
+    border: 1px solid transparent;
+}
 
-    /* Match Cards */
-    .match-list {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
+.day-btn.active {
+    color: var(--text-main);
+    border: 1px solid var(--text-main);
+    border-radius: 12px;
+}
 
-    .match-card {
-        background-color: var(--bg-card);
-        border-radius: 12px;
-        padding: 16px 20px;
-        display: flex;
-        flex-direction: column;
-        text-decoration: none;
-        color: inherit;
-        border-left: 4px solid var(--card-border-left);
-        transition: transform 0.2s ease, background-color 0.2s ease;
-    }
+/* Match Cards */
+.match-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
-    .match-card:hover {
-        background-color: #2a2a2a;
-        transform: translateY(-2px);
-    }
+.match-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border-left: 4px solid var(--card-border-left);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
 
-    .match-main {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 16px;
-    }
+.match-card:hover {
+    background-color: #2a2a2a;
+    transform: translateY(-2px);
+}
 
-    .team {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        width: 30%;
-    }
+.match-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
 
-    .team img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 30%;
+}
 
-    .team-name {
-        font-size: 14px;
-        font-weight: 600;
-        text-align: center;
-        color: #ffffff;
-    }
+.team img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
-    .score-time {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        width: 40%;
-    }
+.team-name {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+}
 
-    .score-text {
-        font-size: 18px;
-        font-weight: 700;
-        color: #ffffff;
-    }
+.score-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 40%;
+}
 
-    .status-badge {
-        font-size: 11px;
-        font-weight: 700;
-        padding: 4px 10px;
-        border-radius: 12px;
-        background-color: #444;
-        color: #fff;
-        min-width: 40px;
-        text-align: center;
-    }
+.score-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+}
 
-    .status-badge.live {
-        background-color: var(--live-green);
-    }
+.status-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background-color: #444;
+    color: #fff;
+    min-width: 40px;
+    text-align: center;
+}
 
-    /* Aligned Footer */
-    .match-footer {
-        display: flex;
-        align-items: center;
-        font-size: 11px;
-        color: var(--text-muted);
-    }
+.status-badge.live {
+    background-color: var(--live-green);
+}
 
-    .footer-left {
-        width: 30%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 4px;
-    }
+/* Aligned Footer */
+.match-footer {
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+    color: var(--text-muted);
+}
 
-    .footer-center {
-        width: 40%;
-        text-align: center;
-    }
+.footer-left {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
 
-    .footer-right {
-        width: 30%;
-        text-align: center;
-    }
+.footer-center {
+    width: 40%;
+    text-align: center;
+}
 
-    /* Social Action Row */
-    .social-buttons {
-        display: flex;
-        gap: 12px;
-        margin-top: 16px;
-    }
+.footer-right {
+    width: 30%;
+    text-align: center;
+}
 
-    .social-btn {
-        flex: 1;
-        padding: 14px;
-        border: none;
-        border-radius: 12px;
-        font-size: 15px;
-        font-weight: 700;
-        color: white;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-    }
+/* Social Action Row */
+.social-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
 
-    .social-btn svg {
-        display: block;
-        fill: currentColor;
-    }
+.social-btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
 
-    .telegram-btn {
-        background-color: var(--accent-blue);
-    }
+.social-btn svg {
+    display: block;
+    fill: currentColor;
+}
 
-    .whatsapp-btn {
-        background-color: var(--accent-green);
-    }
+.telegram-btn {
+    background-color: var(--accent-blue);
+}
+
+.whatsapp-btn {
+    background-color: var(--accent-green);
+}
