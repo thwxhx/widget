@@ -8,6 +8,7 @@
     --accent-blue: #007bff;
     --accent-green: #25d366;
     --live-green: #00c853;
+    --live-red: #ef4444; /* Added for the Live Now pulse */
     --card-border-left: #796fc7; 
     --text-red: #ffffff; 
 }
@@ -194,10 +195,25 @@ body::before {
     color: #fff;
     min-width: 40px;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
 .status-badge.live {
     background-color: var(--live-green);
+}
+
+/* NEW: Red Pulsing Live Now State */
+.status-badge.live-active {
+    background-color: var(--live-red) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 0 0 rgba(239, 68, 64, 0.7);
+    animation: livePulse 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes livePulse {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 64, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(239, 68, 64, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 64, 0); }
 }
 
 /* Aligned Footer */
