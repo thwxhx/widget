@@ -8,19 +8,47 @@
     --accent-blue: #007bff;
     --accent-green: #25d366;
     --live-green: #00c853;
-    --live-red: #ef4444; /* Added for the Live Now pulse */
-    --card-border-left: #796fc7;
-    --text-red: #ffffff;
+    --card-border-left: #796fc7; 
+    --text-red: #ffffff; 
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: var(--bg-main);
+    background-color: var(--bg-main); 
     color: var(--text-main);
     display: flex;
     justify-content: center;
     padding: 20px;
     margin: 0;
+    min-height: 100vh;
+    position: relative; 
+    z-index: 1; 
+}
+
+/* The glowing breathing orb placed behind your content */
+body::before {
+    content: "";
+    position: fixed;
+    top: 40%; 
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(121, 111, 199, 0.35) 0%, rgba(9, 9, 11, 0) 100%);
+    z-index: -1; 
+    pointer-events: none; 
+    animation: breatheGlow 4s ease-in-out infinite alternate;
+}
+
+/* The Animation Logic - Scaling size and opacity */
+@keyframes breatheGlow {
+    0% {
+        transform: translate(-50%, -50%) scale(0.85);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 1;
+    }
 }
 
 .widget-container {
@@ -102,12 +130,16 @@ body {
     text-decoration: none;
     color: inherit;
     border-left: 4px solid var(--card-border-left);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    /* Upgraded transition for smoother effects */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* Upgraded Match Card Hover */
 .match-card:hover {
     background-color: #2a2a2a;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(121, 111, 199, 0.15); /* Soft violet glow */
+    border-color: #948be0; /* Lightens the violet border */
 }
 
 .match-main {
@@ -162,26 +194,10 @@ body {
     color: #fff;
     min-width: 40px;
     text-align: center;
-    transition: background-color 0.3s ease;
 }
 
-/* Green Countdown State */
 .status-badge.live {
     background-color: var(--live-green);
-}
-
-/* NEW: Red Pulsing Live Now State */
-.status-badge.live-active {
-    background-color: var(--live-red) !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 0 0 rgba(239, 68, 64, 0.7);
-    animation: livePulse 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
-}
-
-@keyframes livePulse {
-    0% { box-shadow: 0 0 0 0 rgba(239, 68, 64, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(239, 68, 64, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(239, 68, 64, 0); }
 }
 
 /* Aligned Footer */
@@ -231,6 +247,20 @@ body {
     align-items: center;
     gap: 10px;
     text-decoration: none;
+    /* Added transitions for the hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+/* General hover lift and brightness for social buttons */
+.social-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+/* Active press effect for a satisfying click */
+.social-btn:active {
+    transform: translateY(0);
+    box-shadow: none !important;
 }
 
 .social-btn svg {
@@ -242,6 +272,16 @@ body {
     background-color: var(--accent-blue);
 }
 
+/* Telegram specific hover glow */
+.telegram-btn:hover {
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4);
+}
+
 .whatsapp-btn {
     background-color: var(--accent-green);
+}
+
+/* WhatsApp specific hover glow */
+.whatsapp-btn:hover {
+    box-shadow: 0 8px 16px rgba(37, 211, 102, 0.4);
 }
