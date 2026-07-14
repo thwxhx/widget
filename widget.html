@@ -1,24 +1,27 @@
 <div class="widget-container">
 
     <div class="sport-filters">
-        <button class="sport-btn active">🏆 All</button>
-        <button class="sport-btn">⚽ Football</button>
-        <button class="sport-btn">🏏 Cricket</button>
+        <!-- Added data-filter attributes -->
+        <button class="sport-btn active" data-filter="all">🏆 All</button>
+        <button class="sport-btn" data-filter="football">⚽ Football</button>
+        <button class="sport-btn" data-filter="cricket">🏏 Cricket</button>
     </div>
 
     <div class="day-filters">
-        <button class="day-btn">Yesterday</button>
-        <button class="day-btn active">Today</button>
-        <button class="day-btn">Tomorrow</button>
+        <!-- Added data-filter attributes -->
+        <button class="day-btn" data-filter="yesterday">Yesterday</button>
+        <button class="day-btn active" data-filter="today">Today</button>
+        <button class="day-btn" data-filter="tomorrow">Tomorrow</button>
     </div>
     
     <!-- Match list container -->
     <div class="match-list">
         
-        <a href="https://vivo.thestarindia.in/2026/07/france-vs-spain.html" target="_blank" rel="noopener noreferrer" class="match-card">
+        <!-- Added data-sport="football" to the card -->
+        <a href="https://vivo.thestarindia.in/2026/07/france-vs-spain.html" target="_blank" rel="noopener noreferrer" class="match-card" data-sport="football">
             <div class="match-main">
                 <div class="team">
-                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/6723.png" alt="Australia">
+                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/6723.png" alt="France">
                     <span class="team-name">France</span>
                 </div>
                 <div class="score-time">
@@ -26,7 +29,7 @@
                     <span class="status-badge live timer-badge" data-kickoff="2026-07-15T00:30:00">00:00</span>
                 </div>
                 <div class="team">
-                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/6720.png" alt="Egypt">
+                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/6720.png" alt="Spain">
                     <span class="team-name">Spain</span>
                 </div>
             </div>
@@ -37,10 +40,11 @@
             </div>
         </a>
 
-        <a href="https://vivo.thestarindia.in/2026/07/england-vs-argentina.html" target="_blank" rel="noopener noreferrer" class="match-card">
+        <!-- Added data-sport="football" to the card -->
+        <a href="https://vivo.thestarindia.in/2026/07/england-vs-argentina.html" target="_blank" rel="noopener noreferrer" class="match-card" data-sport="football">
             <div class="match-main">
                 <div class="team">
-                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8491.png" alt="Australia">
+                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/8491.png" alt="England">
                     <span class="team-name">England</span>
                 </div>
                 <div class="score-time">
@@ -48,7 +52,7 @@
                     <span class="status-badge live timer-badge" data-kickoff="2026-07-16T00:30:00">00:00</span>
                 </div>
                 <div class="team">
-                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/6706.png" alt="Egypt">
+                    <img src="https://images.fotmob.com/image_resources/logo/teamlogo/6706.png" alt="Argentina">
                     <span class="team-name">Argentina</span>
                 </div>
             </div>
@@ -60,7 +64,7 @@
         </a>
     </div> 
 
-    <!-- Social buttons are now outside the sorting container -->
+    <!-- Social buttons -->
     <div class="social-buttons">
         <a href="https://t.me/+9Fp7JKDVI0ZhMWNl" target="_blank" rel="noopener noreferrer" class="social-btn telegram-btn">
             <svg width="20" height="20" viewBox="0 0 24 24">
