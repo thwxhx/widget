@@ -1,14 +1,12 @@
 <div class="widget-container">
 
     <div class="sport-filters">
-        <!-- Added data-filter attributes -->
         <button class="sport-btn active" data-filter="all">🏆 All</button>
         <button class="sport-btn" data-filter="football">⚽ Football</button>
         <button class="sport-btn" data-filter="cricket">🏏 Cricket</button>
     </div>
 
     <div class="day-filters">
-        <!-- Added data-filter attributes -->
         <button class="day-btn" data-filter="yesterday">Yesterday</button>
         <button class="day-btn active" data-filter="today">Today</button>
         <button class="day-btn" data-filter="tomorrow">Tomorrow</button>
@@ -17,7 +15,13 @@
     <!-- Match list container -->
     <div class="match-list">
         
-        <!-- Added data-sport="football" to the card -->
+        <!-- Empty State Message (Hidden by default) -->
+        <div class="empty-state hidden" id="empty-message">
+            <span class="empty-icon">⚽</span>
+            <p>No matches available right now.</p>
+            <p class="empty-subtext">Join our Telegram or WhatsApp for more updates!</p>
+        </div>
+        
         <a href="https://vivo.thestarindia.in/2026/07/france-vs-spain.html" target="_blank" rel="noopener noreferrer" class="match-card" data-sport="football">
             <div class="match-main">
                 <div class="team">
@@ -40,7 +44,6 @@
             </div>
         </a>
 
-        <!-- Added data-sport="football" to the card -->
         <a href="https://vivo.thestarindia.in/2026/07/england-vs-argentina.html" target="_blank" rel="noopener noreferrer" class="match-card" data-sport="football">
             <div class="match-main">
                 <div class="team">
