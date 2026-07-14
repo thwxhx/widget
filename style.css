@@ -301,3 +301,7 @@ body::before {
 .whatsapp-btn:hover {
     box-shadow: 0 8px 16px rgba(37, 211, 102, 0.4);
 }
+/* umb umb */
+.hidden {
+    display: none !important;
+}
