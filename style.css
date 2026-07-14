@@ -8,7 +8,7 @@
     --accent-blue: #007bff;
     --accent-green: #25d366;
     --live-green: #00c853;
-    --live-red: #ef4444; /* Added for the Live Now pulse */
+    --live-red: #ef4444;
     --card-border-left: #796fc7; 
     --text-red: #ffffff; 
 }
@@ -26,7 +26,6 @@ body {
     z-index: 1; 
 }
 
-/* The glowing breathing orb placed behind your content */
 body::before {
     content: "";
     position: fixed;
@@ -40,16 +39,9 @@ body::before {
     animation: breatheGlow 4s ease-in-out infinite alternate;
 }
 
-/* The Animation Logic - Scaling size and opacity */
 @keyframes breatheGlow {
-    0% {
-        transform: translate(-50%, -50%) scale(0.85);
-        opacity: 0.6;
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1.15);
-        opacity: 1;
-    }
+    0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 }
 
 .widget-container {
@@ -60,7 +52,6 @@ body::before {
     gap: 16px;
 }
 
-/* Top Sport Filters */
 .sport-filters {
     display: flex;
     justify-content: center;
@@ -87,7 +78,6 @@ body::before {
     border-color: var(--text-main);
 }
 
-/* Day Filters */
 .day-filters {
     display: flex;
     background-color: var(--bg-button);
@@ -115,7 +105,6 @@ body::before {
     border-radius: 12px;
 }
 
-/* Match Cards */
 .match-list {
     display: flex;
     flex-direction: column;
@@ -131,16 +120,14 @@ body::before {
     text-decoration: none;
     color: inherit;
     border-left: 4px solid var(--card-border-left);
-    /* Upgraded transition for smoother effects */
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Upgraded Match Card Hover */
 .match-card:hover {
     background-color: #2a2a2a;
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(121, 111, 199, 0.15); /* Soft violet glow */
-    border-color: #948be0; /* Lightens the violet border */
+    box-shadow: 0 8px 24px rgba(121, 111, 199, 0.15); 
+    border-color: #948be0; 
 }
 
 .match-main {
@@ -202,7 +189,6 @@ body::before {
     background-color: var(--live-green);
 }
 
-/* NEW: Red Pulsing Live Now State */
 .status-badge.live-active {
     background-color: var(--live-red) !important;
     color: #ffffff !important;
@@ -216,7 +202,6 @@ body::before {
     100% { box-shadow: 0 0 0 0 rgba(239, 68, 64, 0); }
 }
 
-/* Aligned Footer */
 .match-footer {
     display: flex;
     align-items: center;
@@ -224,25 +209,10 @@ body::before {
     color: var(--text-muted);
 }
 
-.footer-left {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-}
+.footer-left { width: 30%; display: flex; justify-content: center; align-items: center; gap: 4px; }
+.footer-center { width: 40%; text-align: center; }
+.footer-right { width: 30%; text-align: center; }
 
-.footer-center {
-    width: 40%;
-    text-align: center;
-}
-
-.footer-right {
-    width: 30%;
-    text-align: center;
-}
-
-/* Social Action Row */
 .social-buttons {
     display: flex;
     gap: 12px;
@@ -263,45 +233,40 @@ body::before {
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    /* Added transitions for the hover effect */
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
-/* General hover lift and brightness for social buttons */
 .social-btn:hover {
     transform: translateY(-3px);
     filter: brightness(1.1);
 }
 
-/* Active press effect for a satisfying click */
 .social-btn:active {
     transform: translateY(0);
     box-shadow: none !important;
 }
 
-.social-btn svg {
-    display: block;
-    fill: currentColor;
+.social-btn svg { display: block; fill: currentColor; }
+.telegram-btn { background-color: var(--accent-blue); }
+.telegram-btn:hover { box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4); }
+.whatsapp-btn { background-color: var(--accent-green); }
+.whatsapp-btn:hover { box-shadow: 0 8px 16px rgba(37, 211, 102, 0.4); }
+
+.empty-state {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+    border: 1px dashed var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
 }
 
-.telegram-btn {
-    background-color: var(--accent-blue);
-}
+.empty-icon { font-size: 28px; margin-bottom: 4px; }
+.empty-state p { margin: 0; font-size: 15px; font-weight: 600; color: var(--text-main); }
+.empty-state .empty-subtext { font-size: 12px; font-weight: 400; color: var(--text-muted); }
 
-/* Telegram specific hover glow */
-.telegram-btn:hover {
-    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4);
-}
-
-.whatsapp-btn {
-    background-color: var(--accent-green);
-}
-
-/* WhatsApp specific hover glow */
-.whatsapp-btn:hover {
-    box-shadow: 0 8px 16px rgba(37, 211, 102, 0.4);
-}
-/* umb umb */
-.hidden {
-    display: none !important;
-}
+.hidden { display: none !important; }
