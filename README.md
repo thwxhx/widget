@@ -106,7 +106,7 @@ VivoSports does not host, upload or store any video content. All links point to 
 
 <div align="center">
 
-Made with ❤️ for football & cricket fans
+Made by (@thwaaahha)
 
 **⭐ VivoSports ⭐**
 
