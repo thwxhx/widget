@@ -49,11 +49,18 @@ Football fixtures from international friendlies, Nations League and local league
 ---
 
 ## ⚽ Competitions Covered
-
-- 🌍 International Friendlies
-- 🏆 UEFA Nations League
-- 🇮🇳 Indian football (SAFF, SLK and more)
+ 
+- 🏆 UEFA Champions League (UCL)
+- 🇪🇸 La Liga
+- 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League
+- 🇮🇹 Serie A
+- 🇩🇪 Bundesliga
+- 🇫🇷 Ligue 1
+- 🇸🇦 Saudi Pro League
+- 🇮🇳 Indian Super League (ISL)
+- 🌍 World Cup, Nations League & International Friendlies
 - 🏏 Cricket matches
+- ➕ And many more
 
 ---
 
