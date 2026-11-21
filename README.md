@@ -26,7 +26,9 @@ Football fixtures from international friendlies, Nations League and local league
 
 ## 📸 Preview
 
-> Add a screenshot of your home page here (upload it to the repo and link it).
+<div align="center">
+  <img src="https://i.postimg.cc/dtY4KzXy/image.png" alt="VivoSports Home Page" width="800">
+</div>
 
 ---
 
